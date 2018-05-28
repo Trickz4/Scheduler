@@ -9,7 +9,7 @@ namespace Scheduler.Data
     public interface ISchedulerRepository
     {
         IQueryable<Event> GetEvents();
-        IQueryable<Event> GetEventById(int topicId);
+        IQueryable<Event> GetEventById(int eventId);
         bool Save();
         bool AddEvent(Event newEvent);
         // dodati add i delete

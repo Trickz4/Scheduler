@@ -40,7 +40,7 @@ namespace Scheduler.Controllers
             ViewBag.Message = "Moj test";
 
             var events = _repo.GetEvents()
-                .OrderByDescending(t => t.Date)
+                .OrderBy(t => t.Date)
                 .Take(25)
                 .ToList(); // uzet ce te eventove iz baze podataka(ne uzima vise iqueryable, vec samo
             // IEnumerable 

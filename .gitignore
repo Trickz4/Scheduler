@@ -1,4 +1,4 @@
-src/.vs
+.vs
 bin/
 obj/
 packages/

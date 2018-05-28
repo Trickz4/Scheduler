@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Scheduler.Data.Event>
+@*model je member samog pagea koji representa datu koja mu je proslijedena*@
 @{
     ViewBag.Title = "Testiranje";
     ViewBag.InitModule = "homeTest"; // ubacujemo ga u viewbag u layout-u
@@ -92,3 +93,9 @@
         </div>
     </div>
 </div>
+
+
+@foreach (var _event in Model)  // pogledaj vrh, model je opceniti izraz za datu koja je proslijedena na ovaj view
+{
+    <div>@_event.Id</div>
+}

@@ -62,10 +62,10 @@ namespace Scheduler.Data
             }
         }
 
-      public IQueryable<Event> GetEventById(int topicId)
+      public IQueryable<Event> GetEventById(int eventId)
         {
 
-            return _ctx.Events.Where(r => r.Id == topicId);
+            return _ctx.Events.Where(r => r.Id == eventId);
 
         }
 

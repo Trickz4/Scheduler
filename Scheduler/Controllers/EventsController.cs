@@ -16,10 +16,11 @@ namespace Scheduler.Controllers
         {
             _repo = repo;
         }
-        public IEnumerable<Event> Get()
+        
+        public IEnumerable<Event> Get() // defaultno mu daje atribut HTTPget ( kojeg angular poziva) zbog imena "Get"???
         {
             var events = _repo.GetEvents()
-                .OrderByDescending(t => t.Date)
+                .OrderBy(t => t.Date)
                 .Take(25)
                 .ToList(); // uzet ce te eventove iz baze podataka(ne uzima vise iqueryable, vec samo
             // IEnumerable 
