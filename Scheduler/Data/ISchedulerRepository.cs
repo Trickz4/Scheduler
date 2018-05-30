@@ -12,7 +12,7 @@ namespace Scheduler.Data
         IQueryable<Event> GetEventById(int eventId);
         bool Save();
         bool AddEvent(Event newEvent);
-        // dodati add i delete
+        //TODO dodati add i delete
     }
 }
 

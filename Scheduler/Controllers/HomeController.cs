@@ -39,6 +39,7 @@ namespace Scheduler.Controllers
         {
             ViewBag.Message = "Moj test";
 
+            // za mvc @model na test viewu, ne treba ako necemo koristiti @model
             var events = _repo.GetEvents()
                 .OrderBy(t => t.Date)
                 .Take(25)

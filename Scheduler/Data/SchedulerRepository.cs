@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Scheduler.Data
 {
-    public class SchedulerRepository : ISchedulerRepository
+    public class SchedulerRepository : ISchedulerRepository // TODO - update i delete
     {
         SchedulerContext _ctx;
         public SchedulerRepository(SchedulerContext ctx)
@@ -38,7 +38,8 @@ namespace Scheduler.Data
             {
                 return _ctx.SaveChanges() > 0; // izvrsi saveChanges i vraca true ako se stvarno 
                                                // izvrsila neka promjena  
-
+                                               // saveChanges gotova funkcija u dbContext?
+                                               // ako se izvrsio npr ctx Add ispravno?
             }
             catch (Exception)
             {
@@ -46,11 +47,11 @@ namespace Scheduler.Data
                 return false;
             }
         }
-        public bool AddEvent(Event newEvent)
+        public bool AddEvent(Event newEvent) // building the api / preparing the repository / 0:43
         {
             try
             {
-                 _ctx.Events.Add(newEvent);
+                 _ctx.Events.Add(newEvent); // ADD je gotova funkcija za DBcontext?, entity framework?
                 return true;
                 // ne save-a odmah u bazu, tj dodaje u context
                 // da se sejva, tako da ako ima vise eventova, da ih dodaje 1 po 1 , i onda pozovemo
@@ -64,11 +65,15 @@ namespace Scheduler.Data
 
       public IQueryable<Event> GetEventById(int eventId)
         {
+            // za testiranje sto vraca: 
+            //IQueryable<Event> rez = new Event[] { }.AsQueryable();
+            //rez = _ctx.Events.Where(r => r.Id == eventId);
 
-            return _ctx.Events.Where(r => r.Id == eventId);
+            return _ctx.Events.Where(r => r.Id == eventId); // todo- guglat sintaksu u zagradi
+                                                            // where - entity framework za db?
 
         }
 
-       
+       // TODO - update i delete event
     }
 }

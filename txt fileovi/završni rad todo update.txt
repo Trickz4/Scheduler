@@ -1,0 +1,16 @@
+treba li novi kontroler za getEventById kad bi to radio neki klik ili botun
+
+TODO 
+
+-> UPDATE : kada netko klikne na neki event (zelimo ga otvoriti i mozda update-at) dogodi se  :
+- recimo da smo napravili botun na Test.cshtml koji kada se klikne poziva funkciju UpdateEvent() i sadrži u sebi
+	http.get za 1 event ( kojeg nademo preko ID preko url-a )
+- u home-test.js preko angulara pozivamo http.get("api/v1/events/"unesi ime ID-a") i preko njega na frontend
+sad mozemo prikazati taj event preko $scope.data¸
+----
+cisto teoretski sto moze dalje bit
+- napravimo novi view u kojem ima forma za ID,	Ime eventa, 	Description koji se moze editati , te napraviti
+botune SAVE ,	CANCEL
+- ako udremo SAVE pozvati neku metodu(valjda update) koja ce proslijediti nove podatke(preko scopea) , te preko 
+	backenda odraditi update ( naci event preko ID-a proslijedenog preko url-a, te ga nekako updejtat u bazi )
+- nekako rjesiti da se ne refresha vec dinamicki pokazuje tablica=

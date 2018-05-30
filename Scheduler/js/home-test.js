@@ -8,7 +8,9 @@ function homeTestController($scope, $http)
     $scope.DataCount = 0;
     $scope.data = [];
 
-    $http.get("/api/v1/events") // kad netko zove ovu rutu onda izvrsava se get i dobiva podatke events od EventsControllera ( get metode )
+    // TODO pitat juru za definitivno kako ovo radi
+    $http.get("/api/v1/events") // zovemo get na taj url , a specificirali smo u Api configu da kad smo na tom urlu da koristi eventsController i onda nade Get() u tom kontroleru i onda ide dalje tamo?
+        // kad netko zove ovu rutu onda izvrsava se get i dobiva podatke events od EventsControllera ( get metode )
         // izvrsava se asinkrono, moramo zvati nazad kad get je obavljen do kraja
         .then(function (result) { // result - sadrzava podatke od get metode i neke ostale dijelove rezultata
             //Kad izvrši successful
