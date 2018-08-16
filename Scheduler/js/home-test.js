@@ -16,7 +16,7 @@ function homeTestController($scope, $http)
             //Kad izvrši successful
             console.log("123");
             angular.copy(result.data, $scope.data) // koristi se kad se koriste nizovi  
-           
+           //
         },
         function () {
             //kad je error
