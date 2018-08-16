@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Scheduler.Data.Event>
+@{
+    ViewBag.Title = "Title - Moj Kalendar";
+    ViewBag.InitModule = "homeKalendar"; // ubacujemo ga u viewbag u layout-u
+}
+@section Scripts{
+    <script src="~/js/home-kalendar.js"></script>
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/moment.js"></script>
+    <script src="~/Scripts/fullcalendar.js"></script>
+    <script src="~/Scripts/underscore.js"></script>
+}
+
+<div id="divBody">
+
+    <div id='calendar'></div>
+</div>
+
+
+<!--TESTIRANJE-->
+<div data-ng-controller="homeKalendarController">
+    <!--data-ng-controller="angularController" // kako zna koji kontroler koristi bez ovog?-->
+
+    <table>
+        <tbody>
+            <tr>
+
+                <td>test string : {{ events[1].name }}</td>
+            </tr>
+            <tr>
+                <td>MONIKA</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
