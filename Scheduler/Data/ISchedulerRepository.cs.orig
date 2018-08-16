@@ -9,13 +9,20 @@ namespace Scheduler.Data
     public interface ISchedulerRepository
     {
         IQueryable<Event> GetEvents();
-        IQueryable<Event> GetEventById(int eventId);
+<<<<<<< HEAD
+        IQueryable<Event> GetEventById(int topicId);
         bool Save();
         bool AddEvent(Event newEvent);
         // dodati update i delete
         // za delete
        // _ctx.Events.Remove(newEvent); - ovo ide u schedulerRepository ( u funkciju DeleteEvent - treba je napisati )
        // i onda valjda naci preko ID-a koji cemo element izbrisati
+=======
+        IQueryable<Event> GetEventById(int eventId);
+        bool Save();
+        bool AddEvent(Event newEvent);
+        //TODO dodati add i delete
+>>>>>>> b88b319204f1d4e2ba3f46557f96f1ad2ac036c4
     }
 }
 

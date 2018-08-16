@@ -1,0 +1,22 @@
+TODO: 
+pogledat u tutorialu zasto je u HomeController.cs -> linija 42 (var events ... ) -- provjerit Building the data model- using the repository - 2:00
+
+- delete
+- update 
+- implementirat kalendar sa polywaleta
+- error loging ( npr za provjeru passworda u ChangeMail --- pogledat pluralsight / Creating Content / Using a service
+/ 5:10 --- preko viewbaga zapamtit neku vrijednost i na htmlu je provjeriti i prikladno tome izbacit poruku (npr div)
+- MOZDA - email servis za kad dode neki novi event ili slicno ( ili ako je otkazan/deletan da dode mail da je 
+otkazan event )
+
+
+
+
+
+
+
+
+FINISHED:
+- osnovna tablica
+- create
+- read

@@ -5,7 +5,11 @@ using System.Web;
 
 namespace Scheduler.Data
 {
+<<<<<<< HEAD
+    public class SchedulerRepository : ISchedulerRepository
+=======
     public class SchedulerRepository : ISchedulerRepository // TODO - update i delete
+>>>>>>> b88b319204f1d4e2ba3f46557f96f1ad2ac036c4
     {
         SchedulerContext _ctx;
         public SchedulerRepository(SchedulerContext ctx)
@@ -23,6 +27,15 @@ namespace Scheduler.Data
         {
             return _ctx.Events;
 
+<<<<<<< HEAD
+            /* var ctx = new SchedulerContext();       
+             * return ctx.Events
+             * 
+             * Umjesto da koristimo ovo ( jer ce svaki put kreirati novu instancu contexta
+             * svaki put kad se zove GetEvents, sto nije jeftina operacija(svaki put zove bazu ili nesto
+             *  slicno )) 
+             */
+=======
            /* Umjesto da koristimo ovo ( jer ce svaki put kreirati novu instancu contexta
             * svaki put kad se zove GetEvents, sto nije jeftina operacija(svaki put zove bazu ili nesto
             *  slicno )) 
@@ -30,6 +43,7 @@ namespace Scheduler.Data
             * var ctx = new SchedulerContext();       
             * return ctx.Events
             */
+>>>>>>> b88b319204f1d4e2ba3f46557f96f1ad2ac036c4
         }
 
         public bool Save()
@@ -38,8 +52,12 @@ namespace Scheduler.Data
             {
                 return _ctx.SaveChanges() > 0; // izvrsi saveChanges i vraca true ako se stvarno 
                                                // izvrsila neka promjena  
+<<<<<<< HEAD
+
+=======
                                                // saveChanges gotova funkcija u dbContext?
                                                // ako se izvrsio npr ctx Add ispravno?
+>>>>>>> b88b319204f1d4e2ba3f46557f96f1ad2ac036c4
             }
             catch (Exception)
             {
@@ -47,6 +65,18 @@ namespace Scheduler.Data
                 return false;
             }
         }
+<<<<<<< HEAD
+        public bool AddEvent(Event newEvent)
+        {
+            try
+            {
+                 _ctx.Events.Add(newEvent);
+                // ne save-a odmah u bazu, tj dodaje u context
+                // da se sejva, tako da ako ima vise eventova, da ih dodaje 1 po 1 , i onda pozovemo
+                // save() da ih sve spremi u bazu
+
+                return true;
+=======
         public bool AddEvent(Event newEvent) // building the api / preparing the repository / 0:43
         {
             try
@@ -56,6 +86,7 @@ namespace Scheduler.Data
                 // ne save-a odmah u bazu, tj dodaje u context
                 // da se sejva, tako da ako ima vise eventova, da ih dodaje 1 po 1 , i onda pozovemo
                 // save() da ih sve spremi u bazu
+>>>>>>> b88b319204f1d4e2ba3f46557f96f1ad2ac036c4
             }
             catch (Exception)
             {// TODO dovrsit loganje error-a
@@ -63,6 +94,16 @@ namespace Scheduler.Data
             }
         }
 
+<<<<<<< HEAD
+      public IQueryable<Event> GetEventById(int topicId)
+        {
+
+            return _ctx.Events.Where(r => r.Id == topicId);
+
+        }
+
+       
+=======
       public IQueryable<Event> GetEventById(int eventId)
         {
             // za testiranje sto vraca: 
@@ -75,5 +116,6 @@ namespace Scheduler.Data
         }
 
        // TODO - update i delete event
+>>>>>>> b88b319204f1d4e2ba3f46557f96f1ad2ac036c4
     }
 }

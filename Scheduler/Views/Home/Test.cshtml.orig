@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<Scheduler.Data.Event>
+<<<<<<< HEAD
+=======
 @*model je member samog pagea koji representa datu koja mu je proslijedena*@
+>>>>>>> b88b319204f1d4e2ba3f46557f96f1ad2ac036c4
 @{
     ViewBag.Title = "Testiranje";
     ViewBag.InitModule = "homeTest"; // ubacujemo ga u viewbag u layout-u
@@ -8,7 +11,11 @@
     <script src="~/js/home-test.js"></script>
 }
 
+<<<<<<< HEAD
+<div data-ng-controller="homeTestController">
+=======
 <div data-ng-controller="homeTestController"> @*ime kontrolera koji je povezan na home-test.js*@
+>>>>>>> b88b319204f1d4e2ba3f46557f96f1ad2ac036c4
     <h2 id="pocetak">@ViewBag.Title.</h2>
     <h3>@ViewBag.Message</h3>
 
@@ -93,9 +100,12 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
+=======
 
 
 @foreach (var _event in Model)  // pogledaj vrh, model je opceniti izraz za datu koja je proslijedena na ovaj view
 {
     <div>@_event.Id</div>
 }
+>>>>>>> b88b319204f1d4e2ba3f46557f96f1ad2ac036c4

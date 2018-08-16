@@ -23,7 +23,11 @@ namespace Scheduler
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
+<<<<<<< HEAD
+                routeTemplate: "api/v1/{controller}/{id}",
+=======
                 routeTemplate: "api/v1/{controller}/{id}", // sa {} se oznacavaju parametri
+>>>>>>> b88b319204f1d4e2ba3f46557f96f1ad2ac036c4
                 defaults: new { id = RouteParameter.Optional }
             );
 
