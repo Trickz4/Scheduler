@@ -6,9 +6,11 @@
 }
 @section Scripts{
     <script src="~/js/home-test.js"></script>
+    <script src="~/js/bootstrap-datetimepicker.js"></script>
 }
 
-<div data-ng-controller="homeTestController"> @*ime kontrolera koji je povezan na home-test.js*@
+<div data-ng-controller="homeTestController">
+    @*ime kontrolera koji je povezan na home-test.js*@
     <h2 id="pocetak">@ViewBag.Title.</h2>
     <h3>@ViewBag.Message</h3>
 
@@ -20,10 +22,23 @@
                 <!-- Za ime eventa -->
                 <div class="form-group">
                     <label for="name" class="col-sm-1 control-label">Event</label>
-                    <div class="col-sm-4">
-                        <input name="title" type="text" class="form-control" data-ng-model="newEvent.name">  <!-- prazno polje za unit -->
+                    <div class="input-append date form_datetime">
+                        <input size="16" type="text" value="" readonly data-ng-model="newEvent.from">
+                        <span class="add-on"><i class="icon-th"></i></span>  <!-- prazno polje za unit || salje podatak u home-test.js ( u post metodu u $scope.newEvent) -->
                     </div>
+                    <script type="text/javascript">
+                        $(".form_datetime").datetimepicker({
+                            format: "dd MM yyyy - hh:ii",
+                            autoclose: true,
+                            todayBtn: true,
+                            pickerPosition: "bottom-left"
+                        });
+                    </script>
                 </div>
+
+                @*------------------napravit 5 polja za mjesec, dan, godina, sat,minute-------------*@
+
+
                 <!-- Za description eventa -->
                 <div class="form-group">
                     <label for="body" class="col-sm-1 control-label">Description</label>
@@ -50,52 +65,54 @@
     </div>
              -->
     <!-- Tablica ispod -->
+    <div class="test_tab_table">
+        <table class="table table-hover">
+            <thead class="thead-light">
+                <tr class="info">
+                    <th scope="col" class="col-md-2">#</th>
+                    <th scope="col" class="col-md-2">Name</th>
+                    <th scope="col" class="col-md-3">From</th>
+                    <th scope="col" class="col-md-3">Until</th>
+                    <th scope="col">Description</th>
+                </tr>
+            </thead>
 
-    <table class="table table-hover">
-        <thead class="thead-light">
-            <tr class="info">
-                <th scope="col" class="col-md-2">#</th>
-                <th scope="col" class="col-md-2">Name</th>
-                <th scope="col" class="col-md-4">Date</th>
-                <th scope="col">Description</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr data-ng-repeat="i in data">
-                <th scope="row">{{ i.id }}</th>
-                <td>{{ i.name }}</td>
-                <td>{{ i.date|date:"medium"}}</td>
-                <td>{{ i.description }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-
-    <!-- TESTIRANJE -->
-    <div> ----------- TEST -----------</div>
-    <div class="messages">
-        <div class="message row" data-ng-repeat="i in data">
-            <!-- i se ponavlja koliko je velik niz -->
-            <div class="title span10">
-                {{ i.id }} : {{ i.name }}
-            </div>
-            <div class="date span2">
-                {{ i.date | date:"medium" }}
-            </div>
-            <div class="contents span12">
-                {{ i.description }}
-            </div>
-            <div class="span12 toolbar">
-                <button class="btn btn-primary">Reply</button>
-            </div>
-
-        </div>
+            <tbody>
+                <tr data-ng-repeat="i in data">
+                    <th scope="row">{{ i.id }}</th>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.from|date:"medium"}}</td>
+                    <td>{{ i.until|date:"medium"}}</td>
+                    <td>{{ i.description }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+
+    @*<!-- TESTIRANJE -->
+        <div> ----------- TEST -----------</div>
+        <div class="messages">
+            <div class="message row" data-ng-repeat="i in data">
+                <!-- i se ponavlja koliko je velik niz -->
+                <div class="title span10">
+                    {{ i.id }} : {{ i.name }}
+                </div>
+                <div class="date span2">
+                    {{ i.date | date:"medium" }}
+                </div>
+                <div class="contents span12">
+                    {{ i.description }}
+                </div>
+                <div class="span12 toolbar">
+                    <button class="btn btn-primary">Reply</button>
+                </div>
+
+            </div>
+        </div>*@
 </div>
 
 
-@foreach (var _event in Model)  // pogledaj vrh, model je opceniti izraz za datu koja je proslijedena na ovaj view
-{
-    <div>@_event.Id</div>
-}
+@*@foreach (var _event in Model)  // pogledaj vrh, model je opceniti izraz za datu koja je proslijedena na ovaj view
+    {
+        <div>@_event.Id</div>
+    }*@

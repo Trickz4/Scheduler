@@ -22,7 +22,7 @@ namespace Scheduler.Controllers
         public IEnumerable<Event> Get() // defaultno mu daje atribut HTTPget ( kojeg angular poziva) zbog imena metode "Get"?
         {
             var events = _repo.GetEvents()
-                .OrderByDescending(t => t.Date)
+                .OrderByDescending(t => t.From)
                 .Take(25)
                 .ToList(); // uzet ce te eventove iz baze podataka(ne uzima vise iqueryable, vec samo
             // IEnumerable 
@@ -31,10 +31,10 @@ namespace Scheduler.Controllers
         }
         [HttpPost]
         public HttpResponseMessage Post(Event newEvent) // kada pokrene post request, uzima Request Body od post requesta i mapira ga u newEvent
-        { // nekad se moze dodati i [frombody] ispred Event newEvent da garantira da primamo body
-            if (newEvent.Date == default(DateTime)) // ako filla sa glupom vrijednoscu da se popravi date
+            { // nekad se moze dodati i [frombody] ispred Event newEvent da garantira da primamo body
+            if (newEvent.From == default(DateTime)) // ako filla sa glupom vrijednoscu da se popravi date
             {
-                newEvent.Date = DateTime.UtcNow;
+                newEvent.From = DateTime.UtcNow;
             }
             
             if (_repo.AddEvent(newEvent) && _repo.Save()) // ako je uspjesno prosa addEvent i Save( pogledaj context)

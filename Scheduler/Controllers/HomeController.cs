@@ -41,7 +41,7 @@ namespace Scheduler.Controllers
 
             // za mvc @model na test viewu, ne treba ako necemo koristiti @model
             var events = _repo.GetEvents()
-                .OrderByDescending(t => t.Date)
+                .OrderByDescending(t => t.From)
                 .Take(25)
                 .ToList(); // uzet ce te eventove iz baze podataka(ne uzima vise iqueryable, vec samo
             // IEnumerable 
@@ -53,7 +53,7 @@ namespace Scheduler.Controllers
             ViewBag.Message = "Moj Kalendar";
 
             var events = _repo.GetEvents()
-                .OrderByDescending(t => t.Date)
+                .OrderByDescending(t => t.From)
                 .Take(25)
                 .ToList(); // uzet ce te eventove iz baze podataka(ne uzima vise iqueryable, vec samo
             // IEnumerable 

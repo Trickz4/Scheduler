@@ -35,8 +35,8 @@ function homeKalendarController($scope, $http) { // http - ima get,post, itd met
                return { // foreach
                    id: e.id,
                    title: e.name,
-                   start: '2018-08-16T18:30:00',  //TODO: format?
-                   end: '2018-08-17T19:30:00'
+                   start: e.from,  //TODO: format?
+                   end: e.until
                };
            });
 

@@ -8,12 +8,14 @@ function homeTestController($scope, $http)
     $scope.DataCount = 0;
     $scope.data = [];
 
+    
     // TODO pitat juru za definitivno kako ovo radi
     $http.get("/api/v1/events") // zovemo get na taj url , a specificirali smo u Api configu da kad smo na tom urlu da koristi eventsController i onda nade Get() u tom kontroleru i onda ide dalje tamo?
         // kad netko zove ovu rutu onda izvrsava se get i dobiva podatke events od EventsControllera ( get metode )
         // izvrsava se asinkrono, moramo zvati nazad kad get je obavljen do kraja
         .then(function (result) { // result - sadrzava podatke od get metode i neke ostale dijelove rezultata
             //Kad izvrši successful
+            
             console.log("123");
             angular.copy(result.data, $scope.data) // koristi se kad se koriste nizovi  
            //
@@ -24,10 +26,10 @@ function homeTestController($scope, $http)
         });
 
     $scope.newEvent = {};
-
+ 
     $scope.save = function () {
-
-        $http.post("/api/v1/events", $scope.newEvent)
+       
+        $http.post("/api/v1/events", $scope.newEvent) // second parameter is the data that represents the Event being sent(posted)
         .then(function (result) {
             //successful
             // var newEvent = result.data;
