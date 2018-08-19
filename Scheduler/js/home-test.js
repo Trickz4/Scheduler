@@ -5,6 +5,7 @@ var module = angular.module("homeTest", []) // homeTest- ime modula koji se kori
 
 function homeTestController($scope, $http) { // http - ima get,post, itd metode na server
    
+
     $scope.data = [];
     $scope.placeholder = [];
    // $scope.test;
