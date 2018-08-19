@@ -3,3 +3,5 @@ bin/
 obj/
 packages/
 *.csproj.user
+.vs/Scheduler/DesignTimeBuild
+.vs/Scheduler/v15
