@@ -30,8 +30,8 @@ namespace Scheduler.Controllers
             return events;
         }
         [HttpPost]
-        public HttpResponseMessage Post(Event newEvent) // kada pokrene post request, uzima Request Body od post requesta i mapira ga u newEvent
-            { // nekad se moze dodati i [frombody] ispred Event newEvent da garantira da primamo body
+        public HttpResponseMessage Post([FromBody]Event newEvent) // kada pokrene post request, uzima Request Body od post requesta i mapira ga u newEvent
+            { // nekad se moze dodati i [FromBody] ispred Event newEvent da garantira da primamo body
             if (newEvent.From == default(DateTime)) // ako filla sa glupom vrijednoscu da se popravi date
             {
                 newEvent.From = DateTime.UtcNow;

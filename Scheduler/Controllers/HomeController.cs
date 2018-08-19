@@ -37,7 +37,7 @@ namespace Scheduler.Controllers
         }
         public ActionResult Test()
         {
-            ViewBag.Message = "Moj test";
+            ViewBag.Message = "< form >";
 
             // za mvc @model na test viewu, ne treba ako necemo koristiti @model
             var events = _repo.GetEvents()

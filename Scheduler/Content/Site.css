@@ -10,3 +10,7 @@ margin-top:0px;
 .row footer{
     text-align:center;
 }
+
+.input-group.date.col-sm-3{
+    padding-left:15px;
+}
