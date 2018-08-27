@@ -22,7 +22,7 @@ function homeKalendarController($scope, $http) { // http - ima get,post, itd met
        .then(function (result) { // result - sadrzava podatke od get metode i neke ostale dijelove rezultata
            //Kad izvrši successful
 
-           console.log(result.data[0].name); // !!!!!!!!!!!!!!!!!!!!!! // kada se koristi izvan .then(function(result)) onda se ne moze ucitati samo 1 po 1 element ( baca undefined error) ali moze ucitati cijeli array odjednom ??
+           console.log(result.data); // !!!!!!!!!!!!!!!!!!!!!! // kada se koristi izvan .then(function(result)) onda se ne moze ucitati samo 1 po 1 element ( baca undefined error) ali moze ucitati cijeli array odjednom ??
            // rjesenje - prebaci document ready ( fullcalendar od ispod ) unutar http.get, tj. ovdje
 
            angular.copy(result.data, $scope.events) // koristi se kad se koriste nizovi

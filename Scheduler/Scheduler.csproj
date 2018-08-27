@@ -1175,7 +1175,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\Add.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Home\Kalendar.cshtml" />
   </ItemGroup>

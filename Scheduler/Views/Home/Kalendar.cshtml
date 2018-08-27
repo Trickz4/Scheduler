@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Scheduler.Data.Event>
 @{
-    ViewBag.Title = "Title - Moj Kalendar";
+    ViewBag.Title = "Title - Calendar";
     ViewBag.InitModule = "homeKalendar"; // ubacujemo ga u viewbag u layout-u
 }
 @section Scripts{
@@ -11,17 +11,18 @@
     <script src="~/Scripts/underscore.js"></script>
 }
 
-<div id="divBody">
 
-    <div id='calendar'></div>
-</div>
 
 
 <!--TESTIRANJE-->
 <div data-ng-controller="homeKalendarController">
     <!--data-ng-controller="angularController" // kako zna koji kontroler koristi bez ovog?-->
 
-    <table>
+    <div id="divBody">
+
+        <div id='calendar'></div>
+    </div>
+    @*<table>
         <tbody>
             <tr>
 
@@ -31,5 +32,5 @@
                 <td>MONIKA</td>
             </tr>
         </tbody>
-    </table>
+    </table>*@
 </div>

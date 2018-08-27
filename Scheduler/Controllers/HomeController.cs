@@ -35,7 +35,8 @@ namespace Scheduler.Controllers
 
             return View();
         }
-        public ActionResult Test()
+        //[Authorize] // mozda dodati ako zelimo neku banalnu autentikaciju (da mora bit log-inan da mu se prikaze taj view)
+        public ActionResult Add()
         {
             ViewBag.Message = "< form >";
 
@@ -46,11 +47,11 @@ namespace Scheduler.Controllers
                 .ToList(); // uzet ce te eventove iz baze podataka(ne uzima vise iqueryable, vec samo
             // IEnumerable 
 
-            return View(events);
+            return View(events); // ne trebamo vraćati events jer već primamo te podatke od home-test.js preko get()
         }
         public ActionResult Kalendar()
         {
-            ViewBag.Message = "Moj Kalendar";
+            ViewBag.Message = "Calendar";
 
             var events = _repo.GetEvents()
                 .OrderByDescending(t => t.From)
@@ -58,7 +59,7 @@ namespace Scheduler.Controllers
                 .ToList(); // uzet ce te eventove iz baze podataka(ne uzima vise iqueryable, vec samo
             // IEnumerable 
 
-            return View(events);
+            return View(events); //ne trebamo vraćati events jer već primamo te podatke od home-kalendar.js preko get()
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Scheduler.Controllers
         }
         // kako get radi - > plural // building the API // your first api controller // 3:57
         public IEnumerable<Event> Get() // defaultno mu daje atribut HTTPget ( kojeg angular poziva) zbog imena metode "Get"?
+                                        // get data from the server ( server = web api servisi( dbContext,repozitorij,Entity framework) -> database i nazad)
         {
             var events = _repo.GetEvents()
                 .OrderByDescending(t => t.From)
@@ -27,7 +28,20 @@ namespace Scheduler.Controllers
                 .ToList(); // uzet ce te eventove iz baze podataka(ne uzima vise iqueryable, vec samo
             // IEnumerable 
 
-            return events;
+            return events; // vratit ce ove podatke u then(result) u home-kalendar.js jer je on zvao http.get()
+
+            //    Because we want to  get data from the server, we're actually going to use the Get HTTP verb to get at that data, so we 
+            //        can simply call it Get. 
+            //        Now, what this Get method is going to return is a collection of our Event objects, and let me bring in that namespace.
+            //So, why is this returning an IEnumerable of Topic? It's returning this because when someone issues the call 
+            //    that we see here, API/v1/events, it's going to go to the Events controller, and it's going to issue a Get without 
+            //    any parameters.When it sees the Get come in, it's going to look for a method called Get and execute that method expecting
+            //    that we're going to be returning something back to the person who called it
+
+
+            // zato ako odemo u browser i pozovemo api/v1/events, url ce zvati get() bez parametara, dobit ce "return events" i prikazat ce 
+            // te podatke na stranici
+
         }
         [HttpPost]
         public HttpResponseMessage Post([FromBody]Event newEvent) // kada pokrene post request, uzima Request Body od post requesta i mapira ga u newEvent
