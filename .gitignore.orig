@@ -7,3 +7,4 @@ bin/
 obj/
 packages/
 *.csproj.user
+.vs/Scheduler/v14/.suo
