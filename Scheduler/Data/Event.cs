@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Scheduler.Data
 {
-    public class Event
+    public class Event //
     {
         public int Id { get; set; }
         public string Name { get; set; }
